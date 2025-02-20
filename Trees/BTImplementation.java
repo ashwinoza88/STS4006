@@ -53,7 +53,7 @@ class BT{
 
         while(!q.isEmpty()){
             Node curr = q.poll();
-            System.out.println(curr.data + " ");
+            System.out.print(curr.data + " ");
 
             if(curr.left!=null){
                 q.add(curr.left);
