@@ -87,6 +87,7 @@ class BSTRecoverBF{
                     q.add(curr.right);
                 }
             }
+            System.out.println();
         }
         
     }
