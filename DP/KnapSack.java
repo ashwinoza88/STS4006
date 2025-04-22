@@ -1,3 +1,4 @@
+package DP;
 import java.util.Scanner;
 
 public class KnapSack {
@@ -50,9 +51,10 @@ public class KnapSack {
         for(int j=wt[0]; j<=c; j++){
             dp[0][j] = wt[0];
         }
+        int n = p.length;
 
         for(int i=1; i<n; i++){
-            for(int j=; j<=c; j++){
+            for(int j=0; j<=c; j++){
                 int exclude = 0+dp[i-1][j];
                 int include = 0;
                 if(wt[i]<=j){
@@ -73,7 +75,7 @@ public class KnapSack {
         }
 
         int c = sc.nextInt();
-        knap(wt, p, c, n-1)
+        System.out.println(knap(wt, p, c, n-1));
     }
 
     
