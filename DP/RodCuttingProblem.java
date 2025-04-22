@@ -25,22 +25,22 @@ public class RodCuttingProblem{
             return dp[i][n];
         }
 
-        int exclude = 0 + fun(p,i-1,n);
+        int exclude = 0 + funWithMemoization(p,i-1,n,dp);
         int include = 0;
         int rodlen = i+1;
         if(rodlen<=n){
-            include = p[i] + fun(p, i, (n-rodlen),dp);
+            include = p[i] + funWithMemoization(p, i, (n-rodlen),dp);
         }
         return dp[i][n] = Math.max(exclude, include);
     }
 
     public static int funWithRecursion(int[] p, int i, int n){
         if(i==0) return n*p[i];
-        int exclude = 0 + fun(p,i-1,n);
+        int exclude = 0 + funWithRecursion(p,i-1,n);
         int include = 0;
         int rodlen = i+1;
         if(rodlen<=n){
-            include = p[i] + fun(p, i, (n-rodlen));
+            include = p[i] + funWithRecursion(p, i, (n-rodlen));
         }
         return Math.max(exclude, include);
     }
