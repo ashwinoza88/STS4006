@@ -34,5 +34,27 @@ public class LISDP{
             Arrays.fill(i,-1);
         }
         System.out.println(LIS(a,0,-1,dp));
+        
+
+        //tabulation
+
+        int[][] dp1 = new int[n+1][n+1];
+        
+        for(int ind = n-1; ind >= 0; ind--){
+            for(int prev = ind-1; prev >= -1; prev--){
+                // not take
+                int notTake = dp1[ind+1][prev+1];
+
+                // take
+                int take = 0;
+                if(prev == -1 || a[ind] > a[prev]){
+                    take = 1 + dp1[ind+1][ind+1];
+                }
+
+                dp1[ind][prev+1] = Math.max(take, notTake);
+            }
+        }
+        
+        System.out.println(dp1[0][0]);
     }
 }
